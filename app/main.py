@@ -91,12 +91,12 @@ if uploaded_file is not None:
 
             # Load LSTM model
             lstm_model = LSTMModel(input_dim=len(required_features))
-            lstm_model.load_state_dict(torch.load("/models/lstm_model.pt", map_location=device))
+            lstm_model.load_state_dict(torch.load("../models/lstm_model.pt", map_location=device))
             lstm_model.to(device).eval()
 
             # Load GRU model
             gru_model = GRUModel(input_dim=len(required_features))
-            gru_model.load_state_dict(torch.load("/models/gru_model.pt", map_location=device))
+            gru_model.load_state_dict(torch.load("../models/gru_model.pt", map_location=device))
             gru_model.to(device).eval()
 
             def autoregressive_forecast(model, input_seq, steps, target_idx):
